@@ -1,0 +1,274 @@
+<section class="hero" id="home">
+    <div class="hero-glow hero-glow-one"></div>
+    <div class="hero-glow hero-glow-two"></div>
+    <div class="container hero-grid">
+        <div class="hero-copy">
+            <div class="hero-eyebrow"><span></span> WELCOME TO {$site.name|htmlentities}</div>
+            <h1>让每一个梦想<br><em>在这里生长</em></h1>
+            <p class="hero-desc">
+                {$site.name|htmlentities}坚持立德树人，融合信息工程、经济管理与学前教育优势，
+                以完整的课程体系和实践导向的教学，陪伴每一位学生走向更广阔的未来。
+            </p>
+            <div class="hero-actions">
+                {if $user}
+                <a class="btn-site btn-gold" href="{:url('user/index')}">进入会员中心 <i class="fa fa-arrow-right"></i></a>
+                {else /}
+                <a class="btn-site btn-gold" href="{:url('user/login')}">会员登录 <i class="fa fa-arrow-right"></i></a>
+                {/if}
+                <a class="btn-site btn-ghost" href="#about">了解学校</a>
+            </div>
+            <div class="hero-highlights">
+                <span><i class="fa fa-check-circle"></i> 多系部协同培养</span>
+                <span><i class="fa fa-check-circle"></i> 课程体系完整</span>
+                <span><i class="fa fa-check-circle"></i> 实践导向教学</span>
+            </div>
+        </div>
+        <div class="hero-panel" aria-hidden="true">
+            <div class="hero-panel-ring"></div>
+            <div class="hero-panel-inner">
+                <span class="hero-panel-label">{$site.name|htmlentities}</span>
+                <span class="hero-panel-mark">北</span>
+                <span class="hero-panel-motto">厚德 · 博学 · 笃行</span>
+                <span class="hero-panel-line"></span>
+                <span class="hero-panel-note">以育人为本 · 以实践为径</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="stat-strip">
+    <div class="container stat-strip-grid">
+        <div class="stat-item">
+            <strong>{$stats.departments}</strong>
+            <span>个系部</span>
+        </div>
+        <div class="stat-item">
+            <strong>{$stats.teachers}</strong>
+            <span>位教师</span>
+        </div>
+        <div class="stat-item">
+            <strong>{$stats.courses}</strong>
+            <span>门课程</span>
+        </div>
+        <div class="stat-item">
+            <strong>{$stats.students}</strong>
+            <span>名在校学生</span>
+        </div>
+    </div>
+</section>
+
+<section class="section about-section" id="about">
+    <div class="container about-grid">
+        <div class="about-visual">
+            <div class="about-visual-card">
+                <span class="about-visual-icon"><i class="fa fa-university"></i></span>
+                <strong>知行合一</strong>
+                <p>在学习中实践<br>在实践中成长</p>
+            </div>
+            <div class="about-visual-dots"></div>
+        </div>
+        <div class="about-copy">
+            <span class="section-eyebrow">ABOUT US</span>
+            <h2>一所面向未来的学校</h2>
+            <p>
+                学校现设有信息工程、经济管理、学前教育等系部，开设数据库技术、Java 程序设计、
+                机械设计、会计实务、大学外语等课程，形成了覆盖技术、管理与教育方向的课程体系。
+            </p>
+            <p>
+                我们重视课堂与实践的连接，鼓励学生在真实项目中锻炼能力，在多元选择中找到适合自己的成长路径。
+            </p>
+            <div class="about-points">
+                <div class="about-point">
+                    <i class="fa fa-layer-group"></i>
+                    <div><strong>多系部协同</strong><span>信息工程 · 经济管理 · 学前教育</span></div>
+                </div>
+                <div class="about-point">
+                    <i class="fa fa-book"></i>
+                    <div><strong>课程体系完整</strong><span>覆盖技术、管理、教育等方向</span></div>
+                </div>
+                <div class="about-point">
+                    <i class="fa fa-users"></i>
+                    <div><strong>师资队伍稳定</strong><span>专职教师覆盖各系部</span></div>
+                </div>
+                <div class="about-point">
+                    <i class="fa fa-compass"></i>
+                    <div><strong>成长路径清晰</strong><span>课堂学习与项目实践并重</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt" id="news">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <span class="section-eyebrow">NEWS &amp; EVENTS</span>
+                <h2>新闻动态</h2>
+                <p>关注校园里的每一次发生</p>
+            </div>
+        </div>
+
+        <div class="news-layout">
+            {if $featured}
+            <article class="news-featured">
+                <div class="news-featured-media">
+                    {if $featured.has_image}
+                    <img src="{$featured.image_url|htmlentities}" alt="{$featured.title|htmlentities}">
+                    {else /}
+                    <span class="news-media-icon"><i class="fa fa-newspaper-o"></i></span>
+                    {/if}
+                    <span class="news-tag">{$featured.type_name|htmlentities}</span>
+                </div>
+                <div class="news-featured-body">
+                    <div class="news-date"><i class="fa fa-calendar-o"></i> {$featured.date}</div>
+                    <h3>{$featured.title|htmlentities}</h3>
+                    <p>{$featured.summary|htmlentities}</p>
+                    <span class="news-more">校园动态 <i class="fa fa-long-arrow-right"></i></span>
+                </div>
+            </article>
+            {/if}
+
+            <div class="news-side">
+                {volist name="newsRest" id="item"}
+                <article class="news-mini">
+                    <div class="news-mini-date">
+                        <strong>{$item.day}</strong>
+                        <span>{$item.month}</span>
+                    </div>
+                    <div class="news-mini-body">
+                        <span class="news-tag news-tag-light">{$item.type_name|htmlentities}</span>
+                        <h4>{$item.title|htmlentities}</h4>
+                        <p>{$item.summary|htmlentities}</p>
+                    </div>
+                </article>
+                {/volist}
+                {empty name="newsRest"}
+                <div class="news-side-empty">
+                    <i class="fa fa-calendar-o"></i>
+                    <p>更多校园动态将陆续更新</p>
+                </div>
+                {/empty}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="courses">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <span class="section-eyebrow">ACADEMIC COURSES</span>
+                <h2>学术课程</h2>
+                <p>以课程为基石，构建完整的知识地图</p>
+            </div>
+            <span class="section-count">共 {$stats.courses} 门课程</span>
+        </div>
+
+        <div class="course-grid">
+            {volist name="courses" id="item"}
+            <article class="course-card">
+                <div class="course-card-top">
+                    <span class="course-code">{$item.c_no|htmlentities}</span>
+                    <i class="fa fa-book"></i>
+                </div>
+                <h3>{$item.c_name|htmlentities}</h3>
+                <div class="course-meta">
+                    <span><strong>{$item.hours}</strong> 学时</span>
+                    <span><strong>{$item.credit}</strong> 学分</span>
+                </div>
+                <div class="course-bar"><span style="width: {$item.percent}%;"></span></div>
+            </article>
+            {/volist}
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt" id="teachers">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <span class="section-eyebrow">FACULTY</span>
+                <h2>师资队伍</h2>
+                <p>认真对待每一堂课，也认真对待每一位学生</p>
+            </div>
+            <span class="section-count">共 {$stats.teachers} 位教师</span>
+        </div>
+
+        <div class="teacher-grid">
+            {volist name="teachers" id="item"}
+            <article class="teacher-card">
+                <div class="teacher-avatar">{$item.initial}</div>
+                <h3>{$item.t_name|htmlentities}</h3>
+                <p>{$item.d_name|htmlentities}</p>
+                <span class="teacher-sex">{$item.sex|htmlentities}教师</span>
+            </article>
+            {/volist}
+        </div>
+    </div>
+</section>
+
+<section class="section" id="departments">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <span class="section-eyebrow">DEPARTMENTS</span>
+                <h2>院系设置</h2>
+                <p>不同方向，同样的成长可能</p>
+            </div>
+            <span class="section-count">共 {$stats.departments} 个系部</span>
+        </div>
+
+        <div class="dept-grid">
+            {volist name="departments" id="item"}
+            <article class="dept-card">
+                <div class="dept-head">
+                    <span class="dept-code">{$item.d_no|htmlentities}</span>
+                    <h3>{$item.d_name|htmlentities}</h3>
+                </div>
+                <div class="dept-stats">
+                    <span><strong>{$item.class_count}</strong> 个班级</span>
+                    <span><strong>{$item.teacher_count}</strong> 位教师</span>
+                </div>
+                <p class="dept-classes">{$item.class_text|htmlentities}</p>
+            </article>
+            {/volist}
+        </div>
+    </div>
+</section>
+
+<section class="contact-band" id="contact">
+    <div class="container contact-grid">
+        <div class="contact-copy">
+            <span class="section-eyebrow">CONTACT US</span>
+            <h2>来{$site.name|htmlentities}，<br>开启下一段成长</h2>
+            <p>如果你想了解更多课程、招生或校园信息，欢迎联系我们，或注册会员获取更多服务。</p>
+            <div class="contact-actions">
+                {if $user}
+                <a class="btn-site btn-gold" href="{:url('user/index')}">进入会员中心 <i class="fa fa-arrow-right"></i></a>
+                {else /}
+                <a class="btn-site btn-gold" href="{:url('user/register')}">注册会员 <i class="fa fa-arrow-right"></i></a>
+                <a class="btn-site btn-ghost" href="{:url('user/login')}">已有账号，登录</a>
+                {/if}
+            </div>
+        </div>
+        <div class="contact-cards">
+            <div class="contact-card">
+                <i class="fa fa-map-marker"></i>
+                <div><span>学校地址</span><strong>北京市 · {$site.name|htmlentities}校区</strong></div>
+            </div>
+            <div class="contact-card">
+                <i class="fa fa-phone"></i>
+                <div><span>招生咨询</span><strong>010-0000 0000</strong></div>
+            </div>
+            <div class="contact-card">
+                <i class="fa fa-envelope-o"></i>
+                <div><span>联系邮箱</span><strong>admission@example.com</strong></div>
+            </div>
+            <div class="contact-card">
+                <i class="fa fa-clock-o"></i>
+                <div><span>办公时间</span><strong>周一至周五 08:30 - 17:30</strong></div>
+            </div>
+        </div>
+    </div>
+</section>

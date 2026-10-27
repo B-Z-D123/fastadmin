@@ -1,0 +1,48 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('T_no')}:</label>
+        <div class="col-xs-12 col-sm-4">
+            <select id="c-t_no" data-rule="required" class="form-control" name="row[t_no]">
+                <option value="">{:__('Please select')}</option>
+                {volist name="teacherList" id="vo"}
+                <option value="{$vo.t_no}">
+                    {$vo.t_no} {$vo.t_name}
+                </option>
+                {/volist}
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('C_no')}:</label>
+        <div class="col-xs-12 col-sm-4">
+            <select id="c-c_no" data-rule="required" class="form-control" name="row[c_no]">
+                <option value="">{:__('Please select')}</option>
+                {volist name="courseList" id="vo"}
+                <option value="{$vo.c_no}">
+                    {$vo.c_no} {$vo.c_name}
+                </option>
+                {/volist}
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Cl_no')}:</label>
+        <div class="col-xs-12 col-sm-4">
+            <select id="c-cl_no" data-rule="required" class="form-control" name="row[cl_no]">
+                <option value="">{:__('Please select')}</option>
+                {volist name="classList" id="vo"}
+                <option value="{$vo.cl_no}">
+                    {$vo.cl_no} {$vo.cl_name}
+                </option>
+                {/volist}
+            </select>
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+        </div>
+    </div>
+</form>

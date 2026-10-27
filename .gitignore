@@ -1,0 +1,10 @@
+/runtime/*
+/public/uploads/*
+*.log
+.env
+.idea
+.vscode
+node_modules
+.DS_Store
+composer.lock
+.user.ini
